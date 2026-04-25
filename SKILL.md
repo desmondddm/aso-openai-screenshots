@@ -50,19 +50,46 @@ Explore the project codebase thoroughly. Look at:
 
 ### Step 2: Ask the User Clarifying Questions
 
-After your analysis, present what you've learned and ask targeted questions to fill gaps.
+After your analysis, present what you've learned and ask the user targeted questions to fill gaps:
+
+- "Based on the code, this appears to be [X]. Is that right?"
+- "Who is your target audience? (age, interests, skill level)"
+- "What niche does this app serve?"
+- "What's the #1 reason someone downloads this app?"
+- "Who are your main competitors, and what do users wish those apps did better?"
+- "What do your best reviews say? What do users love most?"
+
+Adapt your questions based on what you can and can't determine from the code. Don't ask questions the code already answers.
 
 ### Step 3: Draft the Core Benefits
 
-Each benefit MUST:
-1. **Lead with an action verb** — TRACK, SEARCH, ADD, CREATE, BOOST, TURN, PLAY, etc.
+Based on your analysis and the user's input, draft 3-6 core benefits. Each benefit MUST:
+1. **Lead with an action verb** — TRACK, SEARCH, ADD, CREATE, BOOST, TURN, PLAY, SORT, FIND, BUILD, SHARE, SAVE, LEARN, DISCOVER, RECORD, etc.
 2. **Focus on what the USER gets**, not what the app does technically
-3. **Be specific enough to be compelling**
-4. **Answer the user's unspoken question**: "Why should I download this?"
+3. **Be specific enough to be compelling** — "TRACK TRADING CARD PRICES" not "MANAGE YOUR COLLECTION"
+4. **Answer the user's unspoken question**: "Why should I download this instead of scrolling past?"
+
+Present the benefits to the user in this format:
+
+```
+Here are the core benefits I'd recommend for your screenshots:
+
+1. [ACTION VERB] + [BENEFIT] — [why this drives downloads]
+2. [ACTION VERB] + [BENEFIT] — [why this drives downloads]
+3. [ACTION VERB] + [BENEFIT] — [why this drives downloads]
+...
+```
+
+**This works for ANY app category:**
+- Fitness: "TRACK YOUR LIFTS", "BUILD CUSTOM ROUTINES", "CRUSH PERSONAL RECORDS"
+- Finance: "SAVE SMARTER", "SPLIT EXPENSES INSTANTLY", "SEE WHERE MONEY GOES"
+- Productivity: "CAPTURE IDEAS FAST", "ORGANIZE EVERYTHING", "NEVER MISS A DEADLINE"
+- Games: "PLAY INSTANTLY", "SPOT THE LIAR", "VOTE THEM OUT"
+- Social: "SHARE MOMENTS", "FIND YOUR PEOPLE", "GO LIVE ANYWHERE"
 
 ### Step 4: Collaborate and Refine
 
-DO NOT proceed until the user explicitly confirms the benefits.
+DO NOT proceed until the user explicitly confirms the benefits. Let the user reorder, reword, add, or remove. Push back (politely) if they choose something generic over something specific.
 
 ### Step 5: Save to Memory
 
@@ -128,11 +155,16 @@ Present your choice with brief reasoning. The user can override.
 
 **Save brand colour and accent colour to memory.**
 
-### Character Sheet (AI Mode Only — CRITICAL for Consistency)
+### Character Sheet (AI Mode Only — When Needed)
 
-**If the app shows player avatars, user profiles, or any human characters across multiple screenshots, you MUST generate a character reference sheet BEFORE generating any screenshots.**
+**Only generate a character sheet if the app shows people across multiple screenshots** — e.g., player avatars in a game, user profiles in a social app, contacts in a messaging app.
 
-This is the single most important step for visual consistency. Without it, every screenshot will have different-looking characters.
+**Skip the character sheet if:**
+- The app is a utility, productivity, or solo-user tool (no avatars)
+- People only appear in one screenshot
+- The app uses abstract icons instead of human avatars
+
+**If characters ARE needed**, this is the single most important step for visual consistency. Without it, every screenshot will have different-looking characters.
 
 **Step 1: Define the cast**
 
