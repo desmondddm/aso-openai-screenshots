@@ -29,7 +29,7 @@ This guarantees:
 - [Claude Code](https://claude.ai/code) (CLI, desktop app, or IDE extension)
 - [OpenAI API key](https://platform.openai.com/api-keys) with **verified organization** (required for `gpt-image-2`)
 - Python 3.10+
-- **macOS** — the skill uses SF Pro Display Black font which ships with macOS at `/Library/Fonts/SF-Pro-Display-Black.otf`. On Linux/Windows, you'll need to install the font manually and update the `FONT_PATH` in `generate_hybrid.py`.
+- **Any OS** — the skill bundles [Inter Display Black](https://rsms.me/inter/) as a fallback font. On macOS, it automatically uses SF Pro Display Black if available (ships with macOS). See [Font Setup](#font-setup) for details.
 
 ## Installation
 
@@ -69,6 +69,21 @@ Only needed if using Mode A (simulator screenshots with `compose.py`):
 ```bash
 cd ~/.claude/skills/aso-openai-screenshots && python3 generate_frame.py
 ```
+
+## Font Setup
+
+The skill automatically picks the best available font:
+
+| Priority | Font | Where it comes from |
+|----------|------|-------------------|
+| 1st | **SF Pro Display Black** | Ships with macOS (`/Library/Fonts/SF-Pro-Display-Black.otf`) |
+| 2nd | **Inter Display Black** | Bundled in `assets/InterDisplay-Black.ttf` (works on all platforms) |
+
+**macOS users** — SF Pro Display Black is already installed. No action needed. It's Apple's system font and looks best on App Store screenshots.
+
+**Linux/Windows users** — the skill falls back to Inter Display Black automatically. No configuration needed.
+
+**(Optional) Install SF Pro on non-Mac systems** — download from [Apple's developer fonts page](https://developer.apple.com/fonts/) and place it at the path expected by the script, or update `_SF_PRO` in `generate_hybrid.py`.
 
 ## Usage
 

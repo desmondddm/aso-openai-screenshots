@@ -29,7 +29,10 @@ DEFAULT_W = 1290
 DEFAULT_H = 2796
 
 # ── Typography ───────────────────────────────────────────────────
-FONT_PATH = "/Library/Fonts/SF-Pro-Display-Black.otf"
+# Try SF Pro Display Black (macOS), fall back to bundled Inter Display Black
+_SF_PRO = "/Library/Fonts/SF-Pro-Display-Black.otf"
+_INTER = os.path.join(os.path.dirname(__file__), "assets", "InterDisplay-Black.ttf")
+FONT_PATH = _SF_PRO if os.path.exists(_SF_PRO) else _INTER
 VERB_SIZE_MAX = 220
 VERB_SIZE_MIN = 140
 DESC_SIZE = 90
