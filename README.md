@@ -78,14 +78,73 @@ cd ~/.claude/skills/aso-openai-screenshots && python3 generate_frame.py
 /aso-openai-screenshots
 ```
 
-The skill will walk you through:
+## What the Skill Does (Step by Step)
 
-1. **Benefit Discovery** — analyzes your codebase, proposes 3-6 benefit headlines (action verb + descriptor)
-2. **Mode Selection** — choose between simulator screenshots or AI-generated phone mockups
-3. **Brand Colour** — auto-detected from your codebase, user can override
-4. **Character Sheet** — generates a reference sheet so player avatars/characters look consistent across all screenshots
-5. **Screenshot Generation** — generates each screenshot using the hybrid approach (~30s per screenshot)
-6. **Output** — App Store-ready PNGs at exact Apple dimensions, numbered in display order
+### Phase 1: Benefit Discovery
+
+The skill starts by **reading your codebase** to understand what your app does:
+
+- Scans UI files, components, view controllers, and screens to identify features
+- Reads models and data structures to understand the domain
+- Checks for in-app purchases, subscriptions, and premium features
+- Looks at onboarding flows, app metadata, and any marketing copy
+
+It then **presents what it learned** and asks clarifying questions:
+
+- "Based on the code, this appears to be [X]. Is that right?"
+- "Who is your target audience?"
+- "What's the #1 reason someone downloads this app?"
+- "Who are your main competitors?"
+- "What do your best reviews say?"
+
+Based on this, it **drafts 3-6 benefit headlines** — each starting with an action verb:
+
+| Category | Example Benefits |
+|----------|-----------------|
+| Fitness | TRACK YOUR LIFTS, BUILD CUSTOM ROUTINES, CRUSH PERSONAL RECORDS |
+| Finance | SAVE SMARTER, SPLIT EXPENSES INSTANTLY, SEE WHERE MONEY GOES |
+| Productivity | CAPTURE IDEAS FAST, ORGANIZE EVERYTHING, NEVER MISS A DEADLINE |
+| Games | PLAY INSTANTLY, SPOT THE LIAR, VOTE THEM OUT |
+| Social | SHARE MOMENTS, FIND YOUR PEOPLE, GO LIVE ANYWHERE |
+
+You review, reorder, reword, and confirm before anything is generated.
+
+### Phase 2: Mode Selection
+
+Choose how the phone content is created:
+
+- **Mode A (Simulator Screenshots)** — You provide real screenshots from the iOS Simulator. The skill composites them into device frames.
+- **Mode B (AI-Generated)** — No screenshots needed. The AI generates phone mockup content based on detailed descriptions of each app screen.
+
+### Phase 3: Brand Colour
+
+The skill **auto-detects your brand colour** by analyzing:
+- Accent colours, tint colours, and theme files in your codebase
+- The app's colour palette and domain personality
+
+It presents its choice with reasoning. You can override if you prefer a different colour.
+
+### Phase 4: Character Sheet (When Needed)
+
+**Only for apps that show people across multiple screenshots** (games with player avatars, social apps with profiles, etc.).
+
+The skill generates a character reference sheet — a single image with all named characters in a consistent cartoon style. This sheet is then passed as a reference to every screenshot generation, ensuring the same characters appear identically across the full set.
+
+**Skipped automatically** for utility apps, productivity tools, and solo-user apps that don't show human avatars.
+
+### Phase 5: Screenshot Generation
+
+For each benefit, the skill runs the hybrid pipeline:
+
+1. **Pillow** creates a 1290x2796 canvas with your headline text rendered in SF Pro Display Black
+2. **gpt-image-2** generates a phone mockup showing the relevant app screen (with your logo and character sheet as references)
+3. **Pillow** composites the phone onto the canvas with a gradient feather blend
+
+Each screenshot takes ~30 seconds. The skill shows you each result and lets you approve or request changes before moving to the next.
+
+### Phase 6: Output
+
+Final screenshots are saved as numbered PNGs at exact App Store Connect dimensions — ready to upload directly. No cropping, resizing, or post-processing needed.
 
 ## Cost
 
